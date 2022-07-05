@@ -1,0 +1,47 @@
+﻿@model Faculty_Information_System_MVC_Layer.Models.CourseTaughtVM
+
+@{
+    ViewData["Title"] = "CourTautcreate";
+}
+<link rel="stylesheet" href="~/Style/StyleSheet3.css" />
+<h1>Create New Entry Of Courses Being Taught</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CourTautcreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CourseId" class="control-label"></label>
+                <input asp-for="CourseId" class="form-control" />
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacultyId" class="control-label"></label>
+                <input asp-for="FacultyId" class="form-control" />
+                <span asp-validation-for="FacultyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectId" class="control-label"></label>
+                <input asp-for="SubjectId" class="form-control" />
+                <span asp-validation-for="SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstDateTaught" class="control-label"></label>
+                <input asp-for="FirstDateTaught" class="form-control" />
+                <span asp-validation-for="FirstDateTaught" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShowCourTaught">Back to Back to Courses Taught</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

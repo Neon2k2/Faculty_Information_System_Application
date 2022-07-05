@@ -1,0 +1,9 @@
+﻿body {
+    background-color: #FAF9F9;
+    /*background-image: url('../image/doc1.jpg');*/
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
