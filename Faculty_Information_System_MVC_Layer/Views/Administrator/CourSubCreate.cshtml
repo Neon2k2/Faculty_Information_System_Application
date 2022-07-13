@@ -1,14 +1,17 @@
-﻿@model Faculty_Information_System_MVC_Layer.Models.CourseTaughtVM
+﻿@model Faculty_Information_System_MVC_Layer.Models.CourseSubjectVM
 
 @{
-    ViewData["Title"] = "CourTautcreate";
+    ViewData["Title"] = "CourSubCreate";
 }
 <link rel="stylesheet" href="~/Style/StyleSheet3.css" />
-<h1>Create New Entry Of Courses Being Taught</h1>
+<h1>Create New Entry</h1>
+
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CourTautcreate">
+        <form asp-action="CourSubCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="form-group">
@@ -17,19 +20,9 @@
                 <span asp-validation-for="CourseId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FacultyId" class="control-label"></label>
-                <input asp-for="FacultyId" class="form-control" />
-                <span asp-validation-for="FacultyId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="SubjectId" class="control-label"></label>
                 <input asp-for="SubjectId" class="form-control" />
                 <span asp-validation-for="SubjectId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstDateTaught" class="control-label"></label>
-                <input asp-for="FirstDateTaught" class="form-control" />
-                <span asp-validation-for="FirstDateTaught" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -40,7 +33,7 @@
 
 <div>
     <p>
-    <button class="rounded-left btn-dark"><a asp-action="ShowCourTaught" class="text-decoration-none text-white">Back to Courses Taught</a></button>
+    <button class="rounded-left btn-dark"><a asp-action="ShowCourSub" class="text-decoration-none text-white">Back</a></button>
 <br/></p>
 
 </div>

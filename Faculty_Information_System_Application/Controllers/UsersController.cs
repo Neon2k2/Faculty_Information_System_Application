@@ -1,6 +1,8 @@
 ﻿using Faculty_Information_System_Application.Data;
 using Faculty_Information_System_Application.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Faculty_Information_System_Application.Controllers
 {
@@ -87,5 +89,6 @@ namespace Faculty_Information_System_Application.Controllers
             }
         }
 
+        
     }
 }

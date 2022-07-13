@@ -26,9 +26,11 @@
 </div>
 
 <div>
-    <a asp-action="ShowSubject">Back to Subjects</a>
-</div>
+    <p>
+    <button class="rounded-left btn-dark"><a asp-action="ShowSubject" class="text-decoration-none text-white">Back to Subjects</a></button>
+<br/></p>
 
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

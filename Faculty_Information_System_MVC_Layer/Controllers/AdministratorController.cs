@@ -15,21 +15,7 @@ namespace Faculty_Information_System_MVC_Layer.Controllers
     public class AdministratorController : Controller
     {
 
-        public IActionResult Search(IFormCollection admin)
-        {
-            HttpClient client = new();
-            IEnumerable<AdministratorVM> adminList = null;
-            string adminName = admin["txtAdminName"];
-
-            Uri uri = new("http://localhost:26686/api/Administrators/" + adminName);
-            var result = client.GetAsync(uri).Result;
-            if (result.IsSuccessStatusCode)
-            {
-                Task<string> data = result.Content.ReadAsStringAsync();
-                adminList = JsonConvert.DeserializeObject<IEnumerable<AdministratorVM>>(data.Result);
-            }
-            return View("Index", adminList);
-        }
+        
 
         public IActionResult Index()
         {
@@ -1215,6 +1201,128 @@ namespace Faculty_Information_System_MVC_Layer.Controllers
 
             }
         }
+
+
+        //Course and Subject relational table
+
+        public IActionResult CourSubDelete(int id)
+        {
+            HttpClient client = new();
+
+
+            string token = Request.Cookies["jwttoken"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            Uri uri = new("http://localhost:26686/api/CourseSubjects/" + id.ToString());
+            var result = client.DeleteAsync(uri).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("ShowCourSub");
+            }
+            else
+            {
+                TempData["message"] = result.ReasonPhrase;
+            }
+            return RedirectToAction("index");
+
+        }
+
+        public IActionResult ShowCourSub()
+        {
+            IEnumerable<CourseSubjectVM> CourSubList = null;
+            HttpClient client = new();
+            string token = Request.Cookies["jwttoken"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            Uri uri = new("http://localhost:26686/api/CourseSubjects");
+
+
+            var result = client.GetAsync(uri).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                Task<string> data = result.Content.ReadAsStringAsync();
+                CourSubList = JsonConvert.DeserializeObject<IEnumerable<CourseSubjectVM>>(data.Result);
+            }
+            return View(CourSubList);
+        }
+
+
+
+        public IActionResult CourSubCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CourSubCreate(CourseSubjectVM courSub)
+        {
+            HttpClient client = new();
+            Uri uri = new("http://localhost:26686/api/CourseSubjects");
+            var result = client.PostAsJsonAsync(uri, courSub).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                return RedirectToAction("ShowCourSub");
+            }
+            else
+            {
+
+                ModelState.AddModelError("", result.ReasonPhrase);
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CourSubEdit(int id)
+        {
+            using (HttpClient client = new ())
+            {
+                CourseSubjectVM courSub = null;
+
+
+
+                Uri uri = new("http://localhost:26686/api/CourseSubjects/" + id);
+                var result = client.GetAsync(uri).Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    Task<string> data = result.Content.ReadAsStringAsync();
+                    courSub = JsonConvert.DeserializeObject<CourseSubjectVM>(data.Result);
+                    return View(courSub);
+                }
+                else
+                {
+                    TempData["message"] = result.ReasonPhrase;
+                }
+                return RedirectToAction("index");
+            }
+
+
+        }
+
+
+
+
+
+        [HttpPost]
+        public IActionResult CourSubEdit(CourseSubjectVM courSub)
+        {
+            using (HttpClient client = new())
+            {
+
+                Uri uri = new("http://localhost:26686/api/CourseSubjects/" + courSub.CourseSubjectId.ToString());
+                var result = client.PutAsJsonAsync(uri, courSub).Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("ShowCourSub");
+                }
+                else
+                {
+                    ModelState.AddModelError("", result.ReasonPhrase);
+                }
+                return View();
+
+            }
+        }
+
+
 
         //Publications
 

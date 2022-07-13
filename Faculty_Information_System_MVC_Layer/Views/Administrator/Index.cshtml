@@ -7,69 +7,121 @@
 
 <link rel="stylesheet" href="~/Style/StyleSheet3.css" />
 
-<table class="table">
-    <thead>
-        <tr>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowUser" class="text-decoration-none">Users</a></button>
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowFac" class="text-decoration-none">Faculties</a></button>
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowDept" class="text-decoration-none">Departments</a></button>
 
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowDesig" class="text-decoration-none">Designation</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowCourse" class="text-decoration-none">Courses</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowSubject" class="text-decoration-none">Subjects</a></button>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowUser" class="text-decoration-none text-white">Users</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowFac" class="text-decoration-none text-white">Faculties</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowDept" class="text-decoration-none text-white">Departments</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowDesig" class="text-decoration-none text-white">Designations</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourse" class="text-decoration-none text-white">Courses</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowSubject" class="text-decoration-none text-white">Subjects</a>
+      </div>
+    </div>
+   </div>
+</div>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                 <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowCourTaught" class="text-decoration-none">Courses Taught</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowDegree" class="text-decoration-none">Degrees</a></button>
-                 
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowGrant" class="text-decoration-none">Grants</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowPublish" class="text-decoration-none">Publications</a></button>
+<br/>
 
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowWork" class="text-decoration-none">Work Histories</a></button>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourSub" class="text-decoration-none text-white">SubjCourse</a>
+      </div>
+    </div>
+  </div>  
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourTaught" class="text-decoration-none text-white">Courses Taught</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowDegree" class="text-decoration-none text-white">Degrees</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowGrant" class="text-decoration-none text-white">Grants</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowPublish" class="text-decoration-none text-white">Publications</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowWork" class="text-decoration-none text-white">Work History</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-            </td>
-        </tr>
-    </thead>
-</table>
+<br/>
 
-
-
-
-
-
+@*=============================================================================================*@
 
 
 <h1>Adiministrators</h1>
 
+@*<div class="row">
+  <div class="col-xs-2">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="Create" class="text-decoration-none text-white">New Admin</a>
+      </div>
+    </div>
+  </div> 
+</div>*@
+
 <p>
-    <a asp-action="Create">Create New Admin</a>
-</p>
+    <button class="rounded-left btn-dark"><a asp-action="Create" class="text-decoration-none text-white">Create New Admin</a></button>
+<br/></p>
+
+
 
 <table class="table">
     <thead>
@@ -89,13 +141,13 @@
             <th>
                 @Html.DisplayNameFor(model => model.ContactDetails)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.RoleLookupId)
-            </th>
+            </th>*@
 
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.IsActive)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -117,16 +169,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ContactDetails)
             </td>
-            <th>
+            @*<th>
                 @Html.DisplayFor(modelItem => item.RoleLookupId)
-            </th>
-            <td>
+            </th>*@
+            @*<td>
                 @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
+            </td>*@
             <td>
-                @Html.ActionLink("Update", "Edit", new { id=item.AdministratorId  }) |
+                @Html.ActionLink("Update", "Edit", new { id=item.AdministratorId  })|
                 @Html.ActionLink("Delete", "Delete", new {  id=item.AdministratorId  })
-            </td>
+
         </tr>
 }
     </tbody>

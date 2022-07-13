@@ -1,0 +1,46 @@
+﻿
+@model Faculty_Information_System_MVC_Layer.Models.CourseSubjectVM
+@{
+    ViewData["Title"] = "CourSubCreate";
+}
+<link rel="stylesheet" href="~/Style/StyleSheet3.css" />
+<h1>Update the Entry</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CourSubEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseSubjectId" class="control-label"></label>
+                <input asp-for="CourseSubjectId" class="form-control" />
+                <span asp-validation-for="CourseSubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CourseId" class="control-label"></label>
+                <input asp-for="CourseId" class="form-control" />
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectId" class="control-label"></label>
+                <input asp-for="SubjectId" class="form-control" />
+                <span asp-validation-for="SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <p>
+    <button class="rounded-left btn-dark"><a asp-action="ShowCourSub" class="text-decoration-none text-white">Back</a></button>
+<br/></p>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

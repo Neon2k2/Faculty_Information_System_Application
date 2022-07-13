@@ -23,8 +23,6 @@ namespace Faculty_Information_System_MVC_Layer.Models
         [Phone(ErrorMessage = "enter 10 digit phone number"), MaxLength(10)]
         public string ContactDetails { get; set; }
 
-        public short? RoleLookupId { get; set; }
-
         public bool? IsActive { get; set; }
 
     }

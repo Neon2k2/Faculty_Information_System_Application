@@ -28,26 +28,15 @@ namespace Faculty_Information_System_Application.Repositories
             // Else we generate JSON Web Token
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(iconfiguration["JWT:Key"]);
-            //var tokenDescriptor = new SecurityTokenDescriptor
-            //{
-            //	Subject = new ClaimsIdentity(new Claim[]
-            //	{
-            //		new Claim(ClaimTypes.Name, u.Email),
-            //		new Claim(ClaimTypes.Role, u.Role.RoleName),
-            //		new Claim("Country",u.Country)
-            //	}),
-            //	Expires = DateTime.UtcNow.AddMinutes(10),
-            //	SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
-            //};
-
-            var tokenDescriptor = new SecurityTokenDescriptor();
-            Claim c1 = new Claim(ClaimTypes.Name, u.UserName);
-            //Claim c2 = new Claim(ClaimTypes.Role, u.RoleLookup.Role);
-            ClaimsIdentity cIdentity = new ClaimsIdentity(new Claim[] { c1 });
-
-            tokenDescriptor.Subject = cIdentity;
-            tokenDescriptor.Expires = DateTime.UtcNow.AddMinutes(10);
-            tokenDescriptor.SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, u.UserName)
+                }),
+                Expires = DateTime.UtcNow.AddMinutes(10),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
+            };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return new MyJwtToken { Token = tokenHandler.WriteToken(token) };

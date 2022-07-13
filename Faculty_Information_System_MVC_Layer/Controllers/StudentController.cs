@@ -1,4 +1,5 @@
 ﻿using Faculty_Information_System_MVC_Layer.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +12,22 @@ namespace Faculty_Information_System_MVC_Layer.Controllers
 {
     public class Student : Controller
     {
+        /*public IActionResult Search(IFormCollection fac)
+        {
+            HttpClient client = new();
+            IEnumerable<FacultyVM> facList = null;
+            string facName = fac["txtAdminName"];
+
+            Uri uri = new("http://localhost:26686/api/AdministratorSearch/" + facName);
+            var result = client.GetAsync(uri).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                Task<string> data = result.Content.ReadAsStringAsync();
+                facList = JsonConvert.DeserializeObject<IEnumerable<FacultyVM>>(data.Result);
+            }
+            return View("ShowFac", facList);
+        }*/
+
         public IActionResult Index()
         {
             IEnumerable<FacultyVM> facultyList = null;
@@ -27,6 +44,24 @@ namespace Faculty_Information_System_MVC_Layer.Controllers
                 facultyList = JsonConvert.DeserializeObject<IEnumerable<FacultyVM>>(data.Result);
             }
             return View(facultyList);
+        }
+
+        public IActionResult ShowCourSub()
+        {
+            IEnumerable<CourseSubjectVM> CourSubList = null;
+            HttpClient client = new();
+            string token = Request.Cookies["jwttoken"];
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            Uri uri = new("http://localhost:26686/api/CourseSubjects");
+
+
+            var result = client.GetAsync(uri).Result;
+            if (result.IsSuccessStatusCode)
+            {
+                Task<string> data = result.Content.ReadAsStringAsync();
+                CourSubList = JsonConvert.DeserializeObject<IEnumerable<CourseSubjectVM>>(data.Result);
+            }
+            return View(CourSubList);
         }
 
         public IActionResult ShowFac()

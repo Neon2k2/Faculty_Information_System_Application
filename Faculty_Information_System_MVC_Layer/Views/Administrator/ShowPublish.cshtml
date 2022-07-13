@@ -1,8 +1,12 @@
 ﻿@model IEnumerable<Faculty_Information_System_MVC_Layer.Models.PublicationVM>
 
+
+
+
 <p>
-    <a asp-action="PublishCreate">Add new Publication</a>
-</p>
+    <button class="rounded-left btn-dark"><a asp-action="PublishCreate" class="text-decoration-none text-white">Add new Publication</a></button>
+<br/></p>
+
 
 @{
     ViewData["Title"] = "ShowPublish";
@@ -73,7 +77,10 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to Home</a>
+    <p>
+    <button class="rounded-left btn-dark"><a asp-action="Index" class="text-decoration-none text-white">Back to Home</a></button>
+<br/></p>
+
 </div>
 
 @section Scripts {

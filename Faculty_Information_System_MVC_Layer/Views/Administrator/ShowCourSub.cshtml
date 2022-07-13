@@ -1,36 +1,30 @@
-﻿@model IEnumerable<Faculty_Information_System_MVC_Layer.Models.CourseTaughtVM>
+﻿@model IEnumerable<Faculty_Information_System_MVC_Layer.Models.CourseSubjectVM>
+
+
 
 @{
-    ViewData["Title"] = "ShowCourTaught";
+    ViewData["Title"] = "ShowCourSub";
 }
 
 <link rel="stylesheet" href="~/Style/StyleSheet3.css" />
 
 
 
-
 <p>
-    <button class="rounded-left btn-dark"><a asp-action="CourTautcreate" class="text-decoration-none text-white">Add Entry of Courses Taught</a></button>
+    <button class="rounded-left btn-dark"><a asp-action="CourSubcreate" class="text-decoration-none text-white">Add New Entry</a></button>
 <br/></p>
-
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CoureseTaughtId)
+                @Html.DisplayNameFor(model => model.CourseSubjectId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CourseId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FacultyId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.SubjectId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstDateTaught)
             </th>
             <th></th>
         </tr>
@@ -39,30 +33,23 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CoureseTaughtId)
+                @Html.DisplayFor(modelItem => item.CourseSubjectId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CourseId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FacultyId)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.SubjectId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstDateTaught)
-            </td>
-            <td>
-                @Html.ActionLink("Update", "CourTautedit", new { id=item.CoureseTaughtId }) |
-                @Html.ActionLink("Delete", "CourDelete", new { id=item.CoureseTaughtId })
+                @Html.ActionLink("Update", "CourSubEdit", new { id=item.CourseSubjectId }) |
+
+                @Html.ActionLink("Delete", "CourSubDelete", new {  id=item.CourseSubjectId })
             </td>
         </tr>
 }
     </tbody>
 </table>
-
-
 
 <div>
     <p>

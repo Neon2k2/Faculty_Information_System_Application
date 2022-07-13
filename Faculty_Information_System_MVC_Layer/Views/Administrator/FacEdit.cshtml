@@ -90,9 +90,14 @@
     </div>
 </div>
 
+
 <div>
-    <a asp-action="ShowFac">Back to Faculty List</a>
+    <p>
+    <button class="rounded-left btn-dark"><a asp-action="ShowFac" class="text-decoration-none text-white">Back to Faculties</a></button>
+<br/></p>
+
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

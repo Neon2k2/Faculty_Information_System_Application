@@ -6,44 +6,73 @@
 <link rel="stylesheet" href="~/Style/StyleSheet3.css" />
 
 
-<table class="table">
-    <thead>
-        <tr>
-            
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowFac" class="text-decoration-none">Faculties</a></button>
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowDept" class="text-decoration-none">Departments</a></button>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowFac" class="text-decoration-none text-white">Faculties</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowDept" class="text-decoration-none text-white">Departments</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourse" class="text-decoration-none text-white">Courses</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowSubject" class="text-decoration-none text-white">Subjects</a>
+      </div>
+    </div>
+   </div>
+</div>
 
-            </td>
-            
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowCourse" class="text-decoration-none">Courses</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowSubject" class="text-decoration-none">Subjects</a></button>
+<br/>
 
-            </td>
-            <td>
-                 <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowCourTaught" class="text-decoration-none">Courses Taught</a></button>
-                
-            </td>
-            
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowGrant" class="text-decoration-none">Grants</a></button>
-                
-            </td>
-            <td>
-                <button class="rounded-pill btn-lg btn-outline-light"><a asp-action="ShowPublish" class="text-decoration-none">Publications</a></button>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourTaught" class="text-decoration-none text-white">Courses Taught</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowGrant" class="text-decoration-none text-white">Grants</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowPublish" class="text-decoration-none text-white">Publications</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="background-color: #343a40">
+      <div class="card-body">
+        <a asp-action="ShowCourSub" class="text-decoration-none text-white">SubjCourse</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-            </td>
-            
-        </tr>
-    </thead>
-</table>
+<br/>
 
+@*=============================================================================================*@
 
 
 
