@@ -99,6 +99,8 @@ namespace Faculty_Information_System_Application
                     IssuerSigningKey = new SymmetricSecurityKey(Key)
                 };
             });
+
+            services.AddCors();
         }
 
 
@@ -115,6 +117,8 @@ namespace Faculty_Information_System_Application
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
             app.UseAuthorization();
 
